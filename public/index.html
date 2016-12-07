@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <script src="dist/mi-model.js"></script>
+
+    <script>
+
+      var model;
+
+      $.get( "json/EBI-9082861.json", function( data ) {
+        model = new MIModel(data);
+        console.log("model", model);
+      });
+
+    </script>
+
+  </body>
+</html>

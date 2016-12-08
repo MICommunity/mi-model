@@ -13,8 +13,11 @@
       var model;
 
       $.get( "json/EBI-9082861.json", function( data ) {
-        model = new MIModel(data);
-        console.log("model", model);
+
+        model = new MIModel(data).load().then(function(m) {
+          console.log("model", m);
+        });
+
       });
 
     </script>

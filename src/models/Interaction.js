@@ -2,12 +2,16 @@ Backbone = require('backbone')
 
 Participants = require('./Participant').Participants
 Features = require('./Feature').Features;
+Links = require('./Link').Links;
+
+_ = require('underscore');
 
 Interaction = Backbone.Model.extend({
 
   defaults: {
     participants: new Participants(),
-    features: new Features()
+    features: new Features(),
+    links: new Links()
   },
 
   initialize: function(participants) {
@@ -31,6 +35,18 @@ Interaction = Backbone.Model.extend({
         return this.get("features").get(id)
       }, this)));
     }, this);
+
+    // Populate the features collection
+    // TODO: Avoid Duplicates
+    this.get("features").each(function(feature) {
+      var links = new Links()
+      feature.get("linkedFeatures").each(function(f) {
+        links.add(f);
+      })
+      links.add(feature);
+      this.get("links").add({features: links});
+    }, this);
+    
   }
 
 });

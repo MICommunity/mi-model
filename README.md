@@ -5,13 +5,16 @@ A NodeJS package for parsing Molecular Interaction JSON data produced by JAMI
 ## Installation
 
 via npm
-
-`npm install --save mi-model`
-
+```bash
+npm install --save mi-model
+```
 via bower
-
-`bower install --save mi-model`
-`<script src="bower_components/mi-model/dist/mi-model.js"></script>`
+```bash
+bower install --save mi-model
+```
+```html
+<script src="bower_components/mi-model/dist/mi-model.js"></script>
+```
 
 ## Usage
 

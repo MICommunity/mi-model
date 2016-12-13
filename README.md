@@ -23,7 +23,9 @@ $.get( "json/EBI-9082861.json", function( data ) {
   });
   
   // MIModel(data) returns a Backbone model structure representing the JAMI JSON.
-  // Optionally you can chain the .load() function with returns a Promise to fetch sequence lengths from uniprot.
+  
+  // Optionally you can chain the .load() function which returns
+  // a Promise to fetch sequence lengths from uniprot.
 
 });
 ```

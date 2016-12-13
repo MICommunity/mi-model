@@ -21,11 +21,12 @@ $.get( "json/EBI-9082861.json", function( data ) {
   new MIModel(data).load().then(function(model) {
     console.log("model", model);
   });
+  
+  // MIModel(data) returns a Backbone model structure representing the JAMI JSON.
+  // Optionally you can chain the .load() function with returns a Promise to fetch sequence lengths from uniprot.
 
 });
 ```
-`MIModel(data)` returns a Backbone model structure representing the JAMI JSON.
-`MIModel(data).load()` optionally calling `load()` returns a Promise to fetch sequence lengths from uniprot.
 
 ## Model Relationships
 

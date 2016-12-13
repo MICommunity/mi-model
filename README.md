@@ -8,6 +8,9 @@ via npm
 ```bash
 npm install --save mi-model
 ```
+```javascript
+MIModel = require('mi-model');
+```
 via bower
 ```bash
 bower install --save mi-model

@@ -8,4 +8,4 @@ A NodeJS package for parsing Molecular Interaction JSON data produced by JAMI
 
 ## Model Relationships
 
-![alt tag](https://raw.githubusercontent.com/joshkh/model/master/img/mi-model-er-diagram.svg)
+![alt tag](https://rawgit.com/joshkh/model/master/img/mi-model-er-diagram.svg)

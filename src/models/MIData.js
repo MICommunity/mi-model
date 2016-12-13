@@ -16,14 +16,14 @@ Data = Backbone.Model.extend({
     interactions: new Interactions()
   },
 
-  initialize: function({data: data}){
+  initialize: function(data){
 
-    this.get("interactors").add(parse.interactors(data).map(function(interactor) {
+    this.get("interactors").add(parse.interactors(data.data).map(function(interactor) {
       interactor.midata = this;
       return interactor;
     }));
 
-    this.get("interactions").add(parse.interactions(data).map(function(interaction) {
+    this.get("interactions").add(parse.interactions(data.data).map(function(interaction) {
       interaction.midata = this;
       return interaction;
     }, this));

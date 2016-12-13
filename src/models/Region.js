@@ -1,11 +1,14 @@
 Backbone = require('backbone')
 
-Region = Backbone.Model.extend({
+var Region = Backbone.Model.extend({
 
   initialize: function() {
 
     // Parse start and end values of the region. Null if unknown.
-    var [start, end] = this.get("pos").split("-");
+    var s = this.get("pos").split("-");
+    var start = s[0];
+    var end = s[1];
+
     isNaN(parseInt(start)) ? this.set("start", null) : this.set("start", parseInt(start));
     isNaN(parseInt(end)) ? this.set("end", null) : this.set("end", parseInt(end));
 
@@ -13,10 +16,10 @@ Region = Backbone.Model.extend({
 
 });
 
-Regions = Backbone.Collection.extend({
+var Regions = Backbone.Collection.extend({
 
   model: Region
 
 });
 
-module.exports = {Region, Regions}
+module.exports = {Region: Region, Regions: Regions}

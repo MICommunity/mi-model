@@ -18,4 +18,4 @@ interactors = function(json) {
   });
 };
 
-module.exports = {participants, interactions, interactors}
+module.exports = {participants: participants, interactions: interactions, interactors: interactors}

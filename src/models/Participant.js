@@ -27,4 +27,4 @@ Participants = Backbone.Collection.extend({
 
 });
 
-module.exports = {Participant, Participants}
+module.exports = {Participant: Participant, Participants: Participants}

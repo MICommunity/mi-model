@@ -1,7 +1,7 @@
 {
-  "name": "model",
+  "name": "mi-model",
   "description": "",
-  "main": "index.js",
+  "main": "dist/mi-model.js",
   "authors": [
     "Joshua Heimbach <joshkh@gmail.com>"
   ],

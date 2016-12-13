@@ -46,7 +46,7 @@ Interaction = Backbone.Model.extend({
       links.add(feature);
       this.get("links").add({features: links});
     }, this);
-    
+
   }
 
 });
@@ -57,4 +57,4 @@ Interactions = Backbone.Collection.extend({
 
 });
 
-module.exports = {Interaction, Interactions}
+module.exports = {Interaction: Interaction, Interactions: Interactions}

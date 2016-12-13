@@ -12,4 +12,4 @@ Links = Backbone.Collection.extend({
 
 });
 
-module.exports = {Link, Links}
+module.exports = {Link: Link, Links: Links}

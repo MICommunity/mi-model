@@ -21,4 +21,4 @@ Features = Backbone.Collection.extend({
 
 });
 
-module.exports = {Feature, Features}
+module.exports = {Feature: Feature, Features: Features}

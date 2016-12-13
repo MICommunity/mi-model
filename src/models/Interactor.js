@@ -16,4 +16,4 @@ Interactors = Backbone.Collection.extend({
 
 });
 
-module.exports = {Interactor, Interactors}
+module.exports = {Interactor: Interactor, Interactors: Interactors}

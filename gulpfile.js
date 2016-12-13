@@ -4,7 +4,10 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
 var watchify = require('watchify');
-// var babel = require('babelify');
+
+var uglify = require('gulp-uglify');
+var pump = require('pump');
+
 var browserSync = require('browser-sync').create()
 
 function compile(watch) {
@@ -49,6 +52,16 @@ gulp.task('browser-sync', function() {
             baseDir: "./public"
         }
     });
+});
+
+gulp.task('compress', function (cb) {
+  pump([
+        gulp.src('public/dist/mi-model.js'),
+        uglify(),
+        gulp.dest('dist')
+    ],
+    cb
+  );
 });
 
 

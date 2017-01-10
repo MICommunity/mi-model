@@ -1,3 +1,4 @@
+_ = require('underscore');
 Backbone = require('backbone')
 
 Features = require('./Feature').Features
@@ -12,10 +13,10 @@ Participant = Backbone.Model.extend({
           .get("interactors")
           .get(this.get("interactorRef")))
 
-    this.set("features", new Features(this.get("features").map(function(feature) {
+    this.set("features", new Features(_.map(this.get("features"), (function(feature) {
       feature.participant = this;
       return feature;
-    }, this)));
+    }, this))));
 
   },
 

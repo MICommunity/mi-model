@@ -1,4 +1,5 @@
-Backbone = require('backbone')
+_ = require('underscore');
+Backbone = require('backbone');
 
 Regions = require('./Region').Regions;
 
@@ -7,10 +8,10 @@ Feature = Backbone.Model.extend({
   initialize: function(inited) {
 
     // Upgrade the feature's sequence data to a Region model
-    this.set("sequenceData", new Regions(this.get("sequenceData").map(function(region){
+    this.set("sequenceData", new Regions(_.map(this.get("sequenceData"), (function(region){
       region.feature = this;
       return region;
-    }, this)));
+    }, this))));
   }
 
 });

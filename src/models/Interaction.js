@@ -1,3 +1,4 @@
+_ = require('underscore');
 Backbone = require('backbone')
 
 Participants = require('./Participant').Participants
@@ -22,6 +23,7 @@ Interaction = Backbone.Model.extend({
       return participant;
     }, this)));
 
+
     // Now that participants have been created, add the features to this interaction
     this.get("participants").each(function(participant) {
       participant.get("features").each(function(feature) {
@@ -31,9 +33,9 @@ Interaction = Backbone.Model.extend({
 
     // Also, now that all features exist, link them to each other
     this.get("features").each(function(feature) {
-      feature.set("linkedFeatures", new Features(feature.get("linkedFeatures").map(function(id) {
+      feature.set("linkedFeatures", new Features(_.map(feature.get("linkedFeatures"), (function(id) {
         return this.get("features").get(id)
-      }, this)));
+      }, this))));
     }, this);
 
     // Populate the features collection

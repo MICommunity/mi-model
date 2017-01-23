@@ -5,12 +5,17 @@ var Region = Backbone.Model.extend({
   initialize: function() {
 
     // Parse start and end values of the region. Null if unknown.
-    var s = this.get("pos").split("-");
-    var start = s[0];
-    var end = s[1];
+    try {
+      var s = this.get("pos").split("-");
+      var start = s[0];
+      var end = s[1];
 
-    isNaN(parseInt(start)) ? this.set("start", null) : this.set("start", parseInt(start));
-    isNaN(parseInt(end)) ? this.set("end", null) : this.set("end", parseInt(end));
+      isNaN(parseInt(start)) ? this.set("start", null) : this.set("start", parseInt(start));
+      isNaN(parseInt(end)) ? this.set("end", null) : this.set("end", parseInt(end));
+
+    } catch (e) {
+      // No region data
+    }
 
   }
 

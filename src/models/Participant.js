@@ -14,14 +14,16 @@ Participant = Backbone.Model.extend({
           .get("interactors")
           .get(this.get("interactorRef")))
     } catch (e) {
-      
+
     }
 
-    this.set("features", new Features(_.map(this.get("features"), (function(feature) {
-      feature.participant = this;
-      return feature;
-    }, this))));
-
+    if (this.get("features")) {
+        this.set("features", new Features(this.get("features").map(function(feature) {
+        feature.participant = this;
+        return feature;
+      }, this)));
+    }
+    
   },
 
 });

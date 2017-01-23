@@ -23,11 +23,15 @@ Interaction = Backbone.Model.extend({
     }, this)));
 
     // Now that participants have been created, add the features to this interaction
-    this.get("participants").each(function(participant) {
-      participant.get("features").each(function(feature) {
-        this.get("features").add(feature);
+    try {
+      this.get("participants").each(function(participant) {
+        participant.get("features").each(function(feature) {
+          this.get("features").add(feature);
+        }, this);
       }, this);
-    }, this);
+    } catch (e) {
+      // No participants
+    }
 
     // Also, now that all features exist, link them to each other
     this.get("features").each(function(feature) {

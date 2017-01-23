@@ -1,6 +1,6 @@
 {
   "name": "mi-model",
-  "version": "0.4.1",
+  "version": "0.4.4",
   "description": "Model for representing Molecular Interaction data",
   "main": "src/index.js",
   "scripts": {

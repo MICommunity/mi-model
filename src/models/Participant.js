@@ -12,10 +12,12 @@ Participant = Backbone.Model.extend({
           .get("interactors")
           .get(this.get("interactorRef")))
 
-    this.set("features", new Features(this.get("features").map(function(feature) {
-      feature.participant = this;
-      return feature;
-    }, this)));
+    if (this.get("features")) {
+        this.set("features", new Features(this.get("features").map(function(feature) {
+        feature.participant = this;
+        return feature;
+      }, this)));
+    }
 
   },
 

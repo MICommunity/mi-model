@@ -17,11 +17,16 @@ Interaction = Backbone.Model.extend({
 
   initialize: function(participants) {
 
+
+
     // Give each participant a reference back to this interaction
     this.set("participants", new Participants(this.get("participants").map(function(participant){
       participant.interaction = this;
       return participant;
     }, this)));
+
+
+
 
 
     // Now that participants have been created, add the features to this interaction
@@ -32,15 +37,17 @@ Interaction = Backbone.Model.extend({
         }, this);
       }, this);
     } catch (e) {
+      console.log("OOPS", e);
       // No participants
     }
 
     // Also, now that all features exist, link them to each other
     this.get("features").each(function(feature) {
-      feature.set("linkedFeatures", new Features(_.map(feature.get("linkedFeatures"), (function(id) {
+      feature.set("linkedFeatures", new Features(_.map(feature.get("linkedFeatures"), function(id) {
         return this.get("features").get(id)
-      }, this))));
+      }, this)));
     }, this);
+
 
     // Populate the features collection
     // TODO: Avoid Duplicates

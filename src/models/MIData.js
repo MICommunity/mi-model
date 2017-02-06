@@ -31,36 +31,45 @@ Data = Backbone.Model.extend({
 
   load: function() {
 
-    var requests = this.get("interactors").map(function(i){
-
-
-      return $.get(this.uniprotUrl + i.get("identifier").id, function(data) {
-        i.set("length", parseInt(data[0]["length"]))
-      });
-
-
-
-    }, this);
-
     var that = this;
 
-    // Prevents Promise.all fail-fast behaviour
-    // http://stackoverflow.com/questions/31424561/wait-until-all-es6-promises-complete-even-rejected-promises
-    function reflect(promise){
-      return promise.then(function(v){ return {v:v, status: "resolved" }},
-                        function(e){ return {e:e, status: "rejected" }});
+    var reflect = function reflect(promise) {
+      return promise.then(function(v){ return {v:v, status: "resolved" }}, function(e){ return {e:e, status: "rejected" }});
     }
 
 
-    var p = new Promise(function(resolve, reject) {
+    // Fetch the lengths of our participants
+    var requests = this.get("interactors").map(function(i){
 
-      Promise.all(requests.map(reflect)).then(function (values) {
+      return $.get(this.uniprotUrl + i.get("identifier").id,
+      function(data) {
+        i.set("length", parseInt(data[0]["length"]))
+      });
+
+    }, this);
+
+
+
+
+    // Return a promise that resolves when all length requests have finished
+    var loadedPromise = new Promise(function (resolve, reject) {
+
+      // var x = $.when.apply("this", requests);
+      // x.done(function(r) {
+      //   console.log("RESOLVING");
+      //   resolve(that);
+      // });
+
+      // console.log("HI", requests);
+
+      Promise.all(requests.map(reflect)).then(function(results){
         resolve(that);
       });
 
+
     });
 
-    return p;
+    return loadedPromise;
 
   }
 

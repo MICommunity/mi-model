@@ -4,6 +4,7 @@ Backbone = require('backbone')
 Participants = require('./Participant').Participants
 Features = require('./Feature').Features;
 Links = require('./Link').Links;
+Expand = require('../utils/expand');
 
 _ = require('underscore');
 
@@ -13,6 +14,10 @@ Interaction = Backbone.Model.extend({
     participants: new Participants(),
     features: new Features(),
     links: new Links()
+  },
+
+  expand: function() {
+    Expand(this);
   },
 
   initialize: function(participants) {

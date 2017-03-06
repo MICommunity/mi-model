@@ -57,7 +57,15 @@ Participant = Backbone.Model.extend({
 
 Participants = Backbone.Collection.extend({
 
-  model: Participant
+  model: Participant,
+
+  withStoichiometry: function(){
+    filtered = this.filter(function(participant) {
+      return participant.get("stoichiometry") > 1
+    });
+
+    return new Participants(filtered);
+  }
 
 });
 

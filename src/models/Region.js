@@ -1,4 +1,4 @@
-Backbone = require('backbone')
+Backbone = require('backbone');
 
 var Region = Backbone.Model.extend({
 
@@ -10,8 +10,17 @@ var Region = Backbone.Model.extend({
       var start = s[0];
       var end = s[1];
 
-      isNaN(parseInt(start)) ? this.set("start", null) : this.set("start", parseInt(start));
-      isNaN(parseInt(end)) ? this.set("end", null) : this.set("end", parseInt(end));
+      if (isNaN(parseInt(start))) {
+        this.set("start", null);
+      } else {
+        this.set("start", parseInt(start));
+      }
+
+      if (isNaN(parseInt(end))) {
+        this.set("end", null);
+      } else {
+        this.set("end", parseInt(end));
+      }
 
     } catch (e) {
       // No region data
@@ -27,4 +36,4 @@ var Regions = Backbone.Collection.extend({
 
 });
 
-module.exports = {Region: Region, Regions: Regions}
+module.exports = {Region: Region, Regions: Regions};

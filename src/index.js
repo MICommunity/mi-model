@@ -1,3 +1,3 @@
 MIData = require("./models/MIData");
 
-module.exports = MIData
+module.exports = MIData;

@@ -1,4 +1,4 @@
-Backbone = require('backbone')
+Backbone = require('backbone');
 
 Link = Backbone.Model.extend({
 
@@ -12,4 +12,4 @@ Links = Backbone.Collection.extend({
 
 });
 
-module.exports = {Link: Link, Links: Links}
+module.exports = {Link: Link, Links: Links};

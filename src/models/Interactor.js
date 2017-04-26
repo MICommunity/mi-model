@@ -1,6 +1,6 @@
-Backbone = require('backbone')
+Backbone = require('backbone');
 
-Participants = require("./Participant").Participants
+Participants = require("./Participant").Participants;
 
 Interactor = Backbone.Model.extend({
 
@@ -16,4 +16,4 @@ Interactors = Backbone.Collection.extend({
 
 });
 
-module.exports = {Interactor: Interactor, Interactors: Interactors}
+module.exports = {Interactor: Interactor, Interactors: Interactors};

@@ -11,11 +11,11 @@ Feature = Backbone.Model.extend({
     var sequenceDataCol = new Regions();
 
 
-    if (attrs.sequenceData != null) {
+    if (attrs.sequenceData !== null) {
 
       var abc = _.map(attrs.sequenceData, function(s) {
-        s.feature = this
-        return s
+        s.feature = this;
+        return s;
       }, this);
 
       // console.log("abc", abc);
@@ -48,4 +48,4 @@ Features = Backbone.Collection.extend({
 
 });
 
-module.exports = {Feature: Feature, Features: Features}
+module.exports = {Feature: Feature, Features: Features};

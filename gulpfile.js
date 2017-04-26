@@ -8,7 +8,7 @@ var watchify = require('watchify');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
 
-var browserSync = require('browser-sync').create()
+var browserSync = require('browser-sync').create();
 
 function compile(watch) {
 
@@ -38,7 +38,7 @@ function compile(watch) {
 
 function watch() {
   return compile(true);
-};
+}
 
 gulp.task('build-watch', ['build'], function (done) {
     browserSync.reload();

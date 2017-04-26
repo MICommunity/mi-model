@@ -1,8 +1,8 @@
 _ = require('underscore');
-Backbone = require('backbone')
+Backbone = require('backbone');
 
-Features = require('./Feature').Features
-Feature = require('./Feature').Feature
+Features = require('./Feature').Features;
+Feature = require('./Feature').Feature;
 
 Participant = Backbone.Model.extend({
 
@@ -13,7 +13,7 @@ Participant = Backbone.Model.extend({
       this.get("interaction")
           .get("midata")
           .get("interactors")
-          .get(this.get("interactorRef")))
+          .get(this.get("interactorRef")));
     } catch (e) {
       console.log("Error creating iner");
 
@@ -61,4 +61,4 @@ Participants = Backbone.Collection.extend({
 
 });
 
-module.exports = {Participant: Participant, Participants: Participants}
+module.exports = {Participant: Participant, Participants: Participants};

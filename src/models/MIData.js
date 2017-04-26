@@ -1,5 +1,5 @@
 _ = require('underscore');
-Backbone = require('backbone')
+Backbone = require('backbone');
 parse = require('../utils/parse.js');
 Interactions = require('./Interaction').Interactions;
 Interactors = require('./Interactor').Interactors;
@@ -34,8 +34,8 @@ Data = Backbone.Model.extend({
     var that = this;
 
     var reflect = function reflect(promise) {
-      return promise.then(function(v){ return {v:v, status: "resolved" }}, function(e){ return {e:e, status: "rejected" }});
-    }
+      return promise.then(function(v){ return {v:v, status: "resolved" };}, function(e){ return {e:e, status: "rejected" };});
+    };
 
 
     // Fetch the lengths of our participants
@@ -43,7 +43,7 @@ Data = Backbone.Model.extend({
 
       return $.get(this.uniprotUrl + i.get("identifier").id,
       function(data) {
-        i.set("length", parseInt(data[0]["length"]))
+        i.set("length", parseInt(data[0].length));
       });
 
     }, this);
@@ -76,4 +76,4 @@ Data = Backbone.Model.extend({
 });
 
 
-module.exports = Data
+module.exports = Data;

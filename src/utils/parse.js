@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var interactions, interactors, participants;
 
 participants = function(json) {

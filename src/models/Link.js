@@ -1,12 +1,13 @@
-Backbone = require('backbone');
+var _ = require('underscore');
+var Backbone = require('backbone');
 
-Link = Backbone.Model.extend({
+var Link = Backbone.Model.extend({
 
   initialize: function(d) {}
 
 });
 
-Links = Backbone.Collection.extend({
+var Links = Backbone.Collection.extend({
 
   model: Link,
 

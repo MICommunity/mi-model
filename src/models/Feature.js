@@ -1,9 +1,9 @@
-_ = require('underscore');
-Backbone = require('backbone');
+var _ = require('underscore');
+var Backbone = require('backbone');
 
-Regions = require('./Region').Regions;
+var Regions = require('./Region').Regions;
 
-Feature = Backbone.Model.extend({
+var Feature = Backbone.Model.extend({
 
   initialize: function(attrs) {
 
@@ -42,7 +42,7 @@ Feature = Backbone.Model.extend({
 
 });
 
-Features = Backbone.Collection.extend({
+var Features = Backbone.Collection.extend({
 
   model: Feature
 

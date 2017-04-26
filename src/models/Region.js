@@ -1,4 +1,5 @@
-Backbone = require('backbone');
+var _ = require('underscore');
+var Backbone = require('backbone');
 
 var Region = Backbone.Model.extend({
 

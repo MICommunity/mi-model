@@ -1,14 +1,11 @@
-_ = require('underscore');
-Backbone = require('backbone');
+var _ = require('underscore');
+var Backbone = require('backbone');
 
-Participants = require('./Participant').Participants;
-Features = require('./Feature').Features;
-Links = require('./Link').Links;
+var Participants = require('./Participant').Participants;
+var Features = require('./Feature').Features;
+var Links = require('./Link').Links;
 
-_ = require('underscore');
-
-
-Interaction = Backbone.Model.extend({
+var Interaction = Backbone.Model.extend({
 
   defaults: {
     participants: new Participants(),
@@ -65,7 +62,7 @@ Interaction = Backbone.Model.extend({
 
 });
 
-Interactions = Backbone.Collection.extend({
+var Interactions = Backbone.Collection.extend({
 
   model: Interaction
 

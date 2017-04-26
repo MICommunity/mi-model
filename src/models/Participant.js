@@ -1,10 +1,11 @@
-_ = require('underscore');
-Backbone = require('backbone');
+// _ = require('underscore');
+var _ = require("underscore");
+var Backbone = require('backbone');
 
-Features = require('./Feature').Features;
-Feature = require('./Feature').Feature;
+var Features = require('./Feature').Features;
+var Feature = require('./Feature').Feature;
 
-Participant = Backbone.Model.extend({
+var Participant = Backbone.Model.extend({
 
   initialize: function(){
 
@@ -55,7 +56,7 @@ Participant = Backbone.Model.extend({
 
 });
 
-Participants = Backbone.Collection.extend({
+var Participants = Backbone.Collection.extend({
 
   model: Participant
 

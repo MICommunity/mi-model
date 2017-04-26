@@ -1,13 +1,13 @@
-_ = require('underscore');
-Backbone = require('backbone');
-parse = require('../utils/parse.js');
-Interactions = require('./Interaction').Interactions;
-Interactors = require('./Interactor').Interactors;
-$ = require('jquery');
-Promise = require('promise');
+var _ = require('underscore');
+var Backbone = require('backbone');
+var parse = require('../utils/parse.js');
+var Interactions = require('./Interaction').Interactions;
+var Interactors = require('./Interactor').Interactors;
+var $ = require('jquery');
+var Promise = require('promise');
 
 
-Data = Backbone.Model.extend({
+var Data = Backbone.Model.extend({
 
   uniprotUrl: "http://www.uniprot.org/uniprot/?format=json&columns=length,id&query=accession:",
 

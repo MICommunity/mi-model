@@ -1,8 +1,10 @@
-Backbone = require('backbone');
+var _ = require('underscore');
 
-Participants = require("./Participant").Participants;
+var Backbone = require('backbone');
 
-Interactor = Backbone.Model.extend({
+var Participants = require("./Participant").Participants;
+
+var Interactor = Backbone.Model.extend({
 
   defaults: {
     participants: new Participants()
@@ -10,7 +12,7 @@ Interactor = Backbone.Model.extend({
 
 });
 
-Interactors = Backbone.Collection.extend({
+var Interactors = Backbone.Collection.extend({
 
   model: Interactor
 

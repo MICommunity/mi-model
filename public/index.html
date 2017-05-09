@@ -13,9 +13,9 @@
       var model;
 
 
-      $.get( "json/EBI-9691559.json", function( data ) {
+      $.get( "json/EBI-1202920.json", function( data ) {
         model = new MIModel(data).load().then(function(m) {
-          console.log("model", m);
+          window.m = m;
         });
 
       });

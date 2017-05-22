@@ -21,7 +21,6 @@ var Interaction = Backbone.Model.extend({
   initialize: function(participants) {
 
 
-
     // Give each participant a reference back to this interaction
     this.set("participants", new Participants(this.get("participants").map(function(participant){
       participant.interaction = this;
@@ -51,18 +50,29 @@ var Interaction = Backbone.Model.extend({
       }, this)));
     }, this);
 
+    function sortNumber(a,b) {
+      return a - b;
+    }
 
     // Populate the features collection
-    // TODO: Avoid Duplicates
     this.get("features").each(function(feature) {
+
       var links = new Links();
       feature.get("linkedFeatures").each(function(f) {
         links.add(f);
       });
-      links.add(feature);
-      this.get("links").add({features: links});
-    }, this);
 
+
+      links.add(feature);
+
+      // Collect the ids of the linked features for later removing duplicates
+      var ids = links.map(function(l) {
+        return l.get("id");
+      });
+
+      // Remove the duplicates
+      this.get("links").add({features: links, id: ids.sort(sortNumber).join("-")});
+    }, this);
   }
 
 });

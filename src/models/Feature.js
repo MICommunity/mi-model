@@ -5,13 +5,13 @@ var Regions = require('./Region').Regions;
 
 var Feature = Backbone.Model.extend({
 
-  initialize: function(attrs) {
+  initialize: function(attrs = {}) {
 
     var sequenceData = attrs.sequenceData;
     var sequenceDataCol = new Regions();
 
 
-    if (attrs.sequenceData !== null) {
+    if (attrs.sequenceData !== null && typeof attrs.sequenceData !== 'undefined') {
 
       var abc = _.map(attrs.sequenceData, function(s) {
         s.feature = this;

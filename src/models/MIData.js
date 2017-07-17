@@ -9,7 +9,8 @@ var Promise = require('promise');
 
 var Data = Backbone.Model.extend({
 
-  uniprotUrl: "http://www.uniprot.org/uniprot/?format=json&columns=length,id&query=accession:",
+  // uniprotUrl: "http://www.uniprot.org/uniprot/?format=json&columns=length,id&query=accession:",
+  uniprotUrl: "https://www.ebi.ac.uk/proteins/api/proteins/",
 
   defaults: {
     interactors: new Interactors(),
@@ -17,6 +18,10 @@ var Data = Backbone.Model.extend({
   },
 
   initialize: function(data){
+
+    this.get("interactions").reset();
+    this.get("interactors").reset();
+
 
     this.get("interactors").add(parse.interactors(data.data).map(function(interactor) {
       interactor.midata = this;
@@ -41,10 +46,16 @@ var Data = Backbone.Model.extend({
     // Fetch the lengths of our participants
     var requests = this.get("interactors").map(function(i){
 
-      return $.get(this.uniprotUrl + i.get("identifier").id,
-      function(data) {
-        i.set("length", parseInt(data[0].length));
+      return $.ajax({
+        url: this.uniprotUrl + i.get("identifier").id,
+        type: "GET",
+        headers: {
+          "Accept": "application/json"
+        }
+      }).done(function(data) {
+        i.set("length", data.sequence.length);
       });
+
 
     }, this);
 

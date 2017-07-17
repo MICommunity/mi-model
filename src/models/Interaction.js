@@ -20,7 +20,6 @@ var Interaction = Backbone.Model.extend({
 
   initialize: function(participants) {
 
-
     // Give each participant a reference back to this interaction
     this.set("participants", new Participants(this.get("participants").map(function(participant){
       participant.interaction = this;

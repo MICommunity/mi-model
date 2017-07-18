@@ -5,6 +5,7 @@ var Participants = require('./Participant').Participants;
 var Features = require('./Feature').Features;
 var Links = require('./Link').Links;
 var Expand = require('../utils/expand');
+var Chroma = require('chroma-js');
 
 var Interaction = Backbone.Model.extend({
 
@@ -71,6 +72,15 @@ var Interaction = Backbone.Model.extend({
 
       // Remove the duplicates
       this.get("links").add({features: links, id: ids.sort(sortNumber).join("-")});
+
+      var colorScale = Chroma.scale('YlOrRd').domain([0, this.get("links").size() - 1]);
+      
+      // Add a color
+      this.get("links").each(function(feature, i) {
+        feature.set("fill", colorScale(i).hex());
+
+      });
+
     }, this);
   }
 
